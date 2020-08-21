@@ -1,4 +1,4 @@
-# sia_app
+# Singapore Airlines AppChallenge
 
 SIA AppChallenge
 

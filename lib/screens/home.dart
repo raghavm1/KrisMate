@@ -40,20 +40,52 @@ class MyHomePage extends StatelessWidget {
           ],
         ),
         Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-          const RaisedButton(
-            onPressed: null,
-            child: Text('Gradient Button', style: TextStyle(fontSize: 20)),
-
-          ),
-          const RaisedButton(
+          new Container(
+            margin: EdgeInsets.fromLTRB(20, 20, 100, 20),
+            child: const RaisedButton(
               onPressed: null,
-              child: Text('Enabled Button', style: TextStyle(fontSize: 20))),
-        ]),
-      ] /*child: Align(
-          alignment: Alignment.topCenter,
-          child: titleSection
-        ),*/
+              child: Text('Gradient Button', style: TextStyle(fontSize: 20)),
+            ),
           ),
+          new Container(
+            child: const RaisedButton(
+                onPressed: null,
+                child: Text('Enabled Button', style: TextStyle(fontSize: 20))),
+          )
+        ]),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Ink.image(
+              image: AssetImage('assets/amenities/booth.jpg'),
+              width: 245,
+              height: 160,
+              child: InkWell(
+                onTap: () {},
+                child: Text('Booth'),
+              ),
+            ),
+            Ink.image(
+              image: AssetImage('assets/amenities/buggy.jpg'),
+              width: 245,
+              height: 160,
+              child: InkWell(
+                onTap: () {},
+                child: Text('Buggy'),
+              ),
+            )
+            /*IconButton(
+              icon: Image.asset('assets/amenities/booth.jpg'),
+              iconSize: 250,
+              onPressed: () {},
+            )*/
+
+            ],
+        ),
+        Row(
+
+        )
+      ]),
     ));
   }
 }

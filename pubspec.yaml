@@ -37,6 +37,7 @@ dev_dependencies:
 flutter:
   assets:
     - assets/source.gif
+    - assets/amenities/
   fonts:
     - family: Sia
       fonts:

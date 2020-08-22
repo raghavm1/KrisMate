@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'chat.dart';
 import 'qr-scanner.dart';
+import 'amenity.dart';
 
 // ignore: must_be_immutable
 class MyHomePage extends StatelessWidget {
@@ -25,6 +26,7 @@ class MyHomePage extends StatelessWidget {
       ],
     ),
   );
+
 
   @override
   Widget build(BuildContext context) {
@@ -132,12 +134,17 @@ class MyHomePage extends StatelessWidget {
           ],
         ),
         Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-          const RaisedButton(
-            onPressed: null,
+          RaisedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => AmenityPage()),
+              );
+            },
             child: Text('Gradient Button', style: TextStyle(fontSize: 20)),
 
           ),
-          const RaisedButton(
+          RaisedButton(
               onPressed: null,
               child: Text('Enabled Button', style: TextStyle(fontSize: 20))),
         ]),

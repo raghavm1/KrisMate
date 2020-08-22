@@ -17,7 +17,8 @@ class CategoryTitle extends StatelessWidget {
       child: Text(
         title,
         style: Theme.of(context).textTheme.button.copyWith(
-          color: active ? kPrimaryColor : kTextColor.withOpacity(.4), fontSize: 16,
+          color: active ? Theme.of(context).primaryColor : kTextColor.withOpacity(.4), fontSize: 16,
+          fontWeight: FontWeight.bold
         ),
       ),
     );

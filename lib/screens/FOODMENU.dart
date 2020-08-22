@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           fontFamily: "Poppins",
           scaffoldBackgroundColor: kWhiteColor,
-          primaryColor: kPrimaryColor,
+          primaryColor: Theme.of(context).primaryColor,
           textTheme: TextTheme(
             headline: TextStyle(fontWeight: FontWeight.bold),
             button: TextStyle(fontWeight: FontWeight.bold),
@@ -38,13 +38,13 @@ class HomeScreen extends StatelessWidget {
         width: 80,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color: kPrimaryColor.withOpacity(.26),
+          color: Theme.of(context).primaryColor.withOpacity(.26),
         ),
         child: Container(
           padding: EdgeInsets.all(20),
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            color: kPrimaryColor,
+            color: Theme.of(context).primaryColor,
           ),
           //child:  Image.asset("assets/images/vegan-cobb-salad-tempeh-bacon.jpg"),
         ),
@@ -70,7 +70,7 @@ class HomeScreen extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             child: Row(
               children: <Widget>[
-                CategoryTitle(title: "TIME", active: true),
+                CategoryTitle(title: "TIME", active: true, ),
                 CategoryTitle(title: "00-06"),
                 CategoryTitle(title: "06-12"),
                 CategoryTitle(title: "12-18"),
@@ -130,6 +130,36 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
           ),
+          Spacer(),
+          Padding(
+            padding: EdgeInsets.only(bottom: 30),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Container(
+                  padding: EdgeInsets.symmetric(vertical: 20, horizontal: 27),
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).primaryColor.withOpacity(.19),
+                    borderRadius: BorderRadius.circular(35),
+                  ),
+                  child: Row(
+                    children: <Widget>[
+                      Text(
+                        "Request a special meal!",
+                        style: Theme.of(context).textTheme.button, textScaleFactor: 1.5 ,
+                      ),
+                      SizedBox(width: 30),
+                      SvgPicture.asset(
+                        "assets/icons/forward.svg",
+                        height: 11,
+                      ),
+                    ],
+                  ),
+                ),
+                
+              ],
+            ),
+          )
         ],
       ),
     );

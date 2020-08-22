@@ -107,7 +107,7 @@ class _MyHomePageState extends State<MyHomePage> {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => ScanningPage()),
+            MaterialPageRoute(builder: (context) => ChatPage()),
           );
         },
         tooltip: 'Increment',

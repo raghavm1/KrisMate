@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -18,9 +18,9 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.blue,
-      ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+        primaryColor: Colors.white,
+        ),
+      home: MyHomePage(title:''),
     );
   }
 }
@@ -46,6 +46,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
+
   void _incrementCounter() {
     setState(() {
       // This call to setState tells the Flutter framework that something has
@@ -53,12 +54,13 @@ class _MyHomePageState extends State<MyHomePage> {
       // so that the display can reflect the updated values. If we changed
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
-      _counter++;
+      _counter = _counter++;
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    final GlobalKey<ScaffoldState> _scaffoldKey =  GlobalKey<ScaffoldState>();
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
@@ -66,11 +68,85 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
+      key: _scaffoldKey,
       appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
+        elevation: 0.0,
         title: Text(widget.title),
+        iconTheme: new IconThemeData(color: Colors.black),
       ),
+      drawer: Drawer( child: Column(
+          children: [
+          DrawerHeader(
+          decoration: BoxDecoration(
+          color: Colors.blue,
+          )),
+            Expanded(
+              flex: 1,
+              child: ListView(
+                children: [
+                  ListTile(
+                  title: Text("RAGHAV SHAHPURIA"),
+                dense: true,
+
+                  onTap: () {
+                  Navigator.of(context).pop();
+                },
+                  ),
+                ],
+              ),
+            ),
+            Expanded(
+              flex: 2,
+              child: ListView(children: [
+                ListTile(
+                  title: Text("Profile"),
+                  onTap: () {
+                    Navigator.of(context).pop();
+                  },
+                ),
+                ListTile(
+                  title: Text("My Bookings"),
+                  onTap: () {
+                    Navigator.of(context).pop();
+                  },
+                ),
+                ListTile(
+                  title: Text("About"),
+                  onTap: () {
+                    Navigator.of(context).pop();
+                  },
+                ),
+                ListTile(
+                  title: Text("Settings"),
+                  onTap: () {
+                    Navigator.of(context).pop();
+                  },
+                ),
+                ListTile(
+                  title: Text("Contact us"),
+                  onTap: () {
+                    Navigator.of(context).pop();
+                  },
+                ),
+                ListTile(
+                  title: Text("Home"),
+                  onTap: () {
+                    Navigator.of(context).pop();
+                  },
+                ),
+                ListTile(
+                  title: Text("Home"),
+                  onTap: () {
+                    Navigator.of(context).pop();
+                  },
+                )
+              ]),
+            )
+          ],
+        ),
+      ),
+
+
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
@@ -108,4 +184,4 @@ class _MyHomePageState extends State<MyHomePage> {
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
-}
+  }

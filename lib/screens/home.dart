@@ -123,8 +123,8 @@ class MyHomePage extends StatelessWidget {
               titleSection,
               new Image(
                   image: new AssetImage("assets/source.gif"),
-                  height: MediaQuery.of(context).size.width * 0.25,
-                  width: MediaQuery.of(context).size.width * 0.25)
+                  height: MediaQuery.of(context).size.width * 0.30,
+                  width: MediaQuery.of(context).size.width * 0.30)
             ],
           ),
           Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[

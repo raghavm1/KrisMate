@@ -58,28 +58,18 @@ class MyHomePage extends StatelessWidget {
       ),
       drawer: Drawer(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             DrawerHeader(
-                decoration: BoxDecoration(
-              color: Colors.blue,
-            )),
+              decoration: new BoxDecoration(
+                color: Theme.of(context).primaryColor,
+              ),
+              child: Text('Joe Biden', style: TextStyle(fontSize: 30)),
+            ),
             Expanded(
               flex: 1,
               child: ListView(
                 children: [
-                  ListTile(
-                    title: Text("RAGHAV SHAHPURIA"),
-                    dense: true,
-                    onTap: () {
-                      Navigator.of(context).pop();
-                    },
-                  ),
-                ],
-              ),
-            ),
-            Expanded(
-              flex: 2,
-              child: ListView(children: [
                 ListTile(
                   title: Text("Profile"),
                   onTap: () {
@@ -119,12 +109,6 @@ class MyHomePage extends StatelessWidget {
                     Navigator.of(context).pop();
                   },
                 ),
-                ListTile(
-                  title: Text("Home"),
-                  onTap: () {
-                    Navigator.of(context).pop();
-                  },
-                )
               ]),
             )
           ],
@@ -139,24 +123,28 @@ class MyHomePage extends StatelessWidget {
               titleSection,
               new Image(
                   image: new AssetImage("assets/source.gif"),
-                  height: 250,
-                  width: 250)
+                  height: MediaQuery.of(context).size.width * 0.25,
+                  width: MediaQuery.of(context).size.width * 0.25)
             ],
           ),
           Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
             new Container(
               margin: EdgeInsets.fromLTRB(20, 20, 20, 20),
-              child: const RaisedButton(
-                onPressed: null,
-                child: Text('Gradient Button', style: TextStyle(fontSize: 20)),
+              child: RaisedButton(
+                onPressed: (){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ScanningPage()),
+                  );
+                },
+                child: Text('Book a facility', style: TextStyle(fontSize: 20)),
               ),
             ),
             new Container(
               margin: EdgeInsets.fromLTRB(20, 20, 20, 20),
               child: const RaisedButton(
                   onPressed: null,
-                  child:
-                      Text('Enabled Button', style: TextStyle(fontSize: 20))),
+                  child: Text('Select lounge', style: TextStyle(fontSize: 20))),
             )
           ]),
           Container(
@@ -301,35 +289,6 @@ class MyHomePage extends StatelessWidget {
                   }),
             ),
           ),
-
-          /*Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Ink.image(
-              image: AssetImage('assets/amenities/booth.jpg'),
-              width: 245,
-              height: 160,
-              child: InkWell(
-                onTap: () {},
-                child: Text('Booth'),
-              ),
-            ),
-            Ink.image(
-              image: AssetImage('assets/amenities/buggy.jpg'),
-              width: 245,
-              height: 160,
-              child: InkWell(
-                onTap: () {},
-                child: Text('Buggy'),
-              ),
-            )
-            /*IconButton(
-              icon: Image.asset('assets/amenities/booth.jpg'),
-              iconSize: 250,
-              onPressed: () {},
-            )*/
-          ],
-        ),*/
         ]),
       ),
       floatingActionButton: (FloatingActionButton(

@@ -137,7 +137,7 @@ class MyHomePage extends StatelessWidget {
             ),
             Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
               new Container(
-                margin: EdgeInsets.fromLTRB(20, 20, 100, 20),
+                margin: EdgeInsets.fromLTRB(20, 20, 20, 20),
                 child: const RaisedButton(
                   onPressed: null,
                   child:
@@ -145,6 +145,7 @@ class MyHomePage extends StatelessWidget {
                 ),
               ),
               new Container(
+                margin: EdgeInsets.fromLTRB(20, 20, 20, 20),
                 child: const RaisedButton(
                     onPressed: null,
                     child:
@@ -169,14 +170,14 @@ class MyHomePage extends StatelessWidget {
 
                                     Image.asset(
                                       Amenities.amenities["path"][i][0],
-                                      height: 160,
-                                      width: 240,
+                                      height: 160.0/240*MediaQuery.of(context).size.width*0.5,
+                                      width: MediaQuery.of(context).size.width*0.5,
                                     ),
                                     Opacity(
                                         opacity: 0.95,
                                         child: Container(
-                                          height: 160.0,
-                                          width: 240.0,
+                                          height: 160.0/240*MediaQuery.of(context).size.width*0.5,
+                                          width: MediaQuery.of(context).size.width*0.5,
                                           decoration: BoxDecoration(
                                               color: Colors.white,
                                               gradient: LinearGradient(
@@ -193,10 +194,10 @@ class MyHomePage extends StatelessWidget {
                                         )
                                     ),
                                     Container(
-                                        height:160,
-                                        width: 240,
+                                        height: 160.0/240*MediaQuery.of(context).size.width*0.5,
+                                        width: MediaQuery.of(context).size.width*0.5,
                                         child:Align(alignment:Alignment.bottomCenter,
-                                            child:Text(Amenities.amenities["name"][i][0]+"    >",style: TextStyle(fontSize:30, color: Colors.white),))
+                                            child:Text(Amenities.amenities["name"][i][0]+"    >",style: TextStyle(fontSize:24, color: Colors.white),))
                                     ),
                                   ],
                                 ),
@@ -208,14 +209,14 @@ class MyHomePage extends StatelessWidget {
                                   children: <Widget>[
                                     Image.asset(
                                       Amenities.amenities["path"][i][1],
-                                      height: 160,
-                                      width: 240,
+                                      height: 160.0/240*MediaQuery.of(context).size.width*0.5,
+                                      width: MediaQuery.of(context).size.width*0.5,
                                     ),
                                     Opacity(
                                         opacity: 0.95,
                                         child: Container(
-                                          height: 160.0,
-                                          width: 240.0,
+                                          height: 160.0/240*MediaQuery.of(context).size.width*0.5,
+                                          width: MediaQuery.of(context).size.width*0.5,
                                           decoration: BoxDecoration(
                                               color: Colors.white,
                                               gradient: LinearGradient(
@@ -232,10 +233,10 @@ class MyHomePage extends StatelessWidget {
                                         )
                                     ),
                                     Container(
-                                        height:160,
-                                        width: 240,
+                                        height: 160.0/240*MediaQuery.of(context).size.width*0.5,
+                                        width: MediaQuery.of(context).size.width*0.5,
                                         child:Align(alignment:Alignment.bottomCenter,
-                                            child:Text(Amenities.amenities["name"][i][1]+"    >",style: TextStyle(fontSize:30, color: Colors.white),))
+                                            child:Text(Amenities.amenities["name"][i][1]+"    >",style: TextStyle(fontSize:24, color: Colors.white),))
                                     ),
                                   ],
                                 ),
@@ -274,9 +275,11 @@ class MyHomePage extends StatelessWidget {
             )*/
           ],
         ),*/
-          ),
+          ]),
     ),
-    floatingActionButton: (FloatingActionButton(child: Icon(Icons.question_answer), onPressed: (){
+    floatingActionButton: (FloatingActionButton(
+      backgroundColor: Color.fromARGB(255, 252, 177, 48),
+      child: Icon(Icons.question_answer), onPressed: (){
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => ChatPage()),

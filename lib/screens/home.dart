@@ -63,7 +63,6 @@ class MyHomePage extends StatelessWidget {
                 ListTile(
                   title: Text("RAGHAV SHAHPURIA"),
                   dense: true,
-
                   onTap: () {
                     Navigator.of(context).pop();
                   },
@@ -131,8 +130,8 @@ class MyHomePage extends StatelessWidget {
                 titleSection,
                 new Image(
                     image: new AssetImage("assets/source.gif"),
-                    height: 250,
-                    width: 250)
+                    height: MediaQuery.of(context).size.width*0.25,
+                    width: MediaQuery.of(context).size.width*0.25)
               ],
             ),
             Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
@@ -141,7 +140,7 @@ class MyHomePage extends StatelessWidget {
                 child: const RaisedButton(
                   onPressed: null,
                   child:
-                      Text('Gradient Button', style: TextStyle(fontSize: 20)),
+                      Text('Book a facility', style: TextStyle(fontSize: 20)),
                 ),
               ),
               new Container(
@@ -149,7 +148,7 @@ class MyHomePage extends StatelessWidget {
                 child: const RaisedButton(
                     onPressed: null,
                     child:
-                        Text('Enabled Button', style: TextStyle(fontSize: 20))),
+                        Text('Select lounge', style: TextStyle(fontSize: 20))),
               )
             ]),
             Container(
@@ -204,7 +203,6 @@ class MyHomePage extends StatelessWidget {
                               ),
                               InkWell(
                                 onTap: () {},
-
                                 child: Stack(
                                   children: <Widget>[
                                     Image.asset(
@@ -246,35 +244,6 @@ class MyHomePage extends StatelessWidget {
                     }),
               ),
             ),
-
-            /*Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Ink.image(
-              image: AssetImage('assets/amenities/booth.jpg'),
-              width: 245,
-              height: 160,
-              child: InkWell(
-                onTap: () {},
-                child: Text('Booth'),
-              ),
-            ),
-            Ink.image(
-              image: AssetImage('assets/amenities/buggy.jpg'),
-              width: 245,
-              height: 160,
-              child: InkWell(
-                onTap: () {},
-                child: Text('Buggy'),
-              ),
-            )
-            /*IconButton(
-              icon: Image.asset('assets/amenities/booth.jpg'),
-              iconSize: 250,
-              onPressed: () {},
-            )*/
-          ],
-        ),*/
           ]),
     ),
     floatingActionButton: (FloatingActionButton(

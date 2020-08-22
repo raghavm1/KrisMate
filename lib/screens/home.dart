@@ -4,6 +4,7 @@ import '../amenities.dart';
 import 'chat.dart';
 import 'qr-scanner.dart';
 import 'amenity.dart';
+import 'bookings.dart';
 
 // ignore: must_be_immutable
 class MyHomePage extends StatelessWidget {
@@ -78,7 +79,10 @@ class MyHomePage extends StatelessWidget {
                 ListTile(
                   title: Text("My Bookings"),
                   onTap: () {
-                    Navigator.of(context).pop();
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => BookingsPage()),
+                    );
                   },
                 ),
                 ListTile(
@@ -153,7 +157,13 @@ class MyHomePage extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             InkWell(
-                              onTap: () {},
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => AmenityPage(indices: [i,0],)),
+                                );
+                              },
                               child: Stack(
                                 children: <Widget>[
                                   Image.asset(
@@ -211,7 +221,13 @@ class MyHomePage extends StatelessWidget {
                               ),
                             ),
                             InkWell(
-                              onTap: () {},
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => AmenityPage(indices: [i,1],)),
+                                );
+                              },
                               child: Stack(
                                 children: <Widget>[
                                   Image.asset(

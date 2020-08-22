@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sia_app/screens/home.dart';
 
+import 'screens/FOODMENU.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -22,7 +24,7 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Sia',
         primaryColor: new Color.fromARGB(255, 29, 72, 134),
         ),
-      home: MyHomePage(title:''),
+      home: HomeScreen(),
     );
   }
 }
@@ -184,7 +186,9 @@ class _MyHomePageState extends State<MyHomePage> {
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
-      home: MyHomePage(),
     );
   }
   }
+
+
+

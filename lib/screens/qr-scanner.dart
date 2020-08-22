@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:qrscan/qrscan.dart' as scanner;
+import 'package:toast/toast.dart';
 
 class ScanningPage extends StatefulWidget {
   @override
@@ -39,6 +40,7 @@ class _ScanningPageState extends State<ScanningPage> {
             child: (Text('Waitlist',
                 style: TextStyle(fontSize: 24, color: Colors.white))),
             onPressed: () {
+              Toast.show("Your place has been booked!", context, duration: Toast.LENGTH_LONG, gravity:  Toast.BOTTOM);
               setState(() {
                 description = 'You will be notified when space is available';
                 buttons=[];
@@ -102,7 +104,7 @@ class _ScanningPageState extends State<ScanningPage> {
     ),
     )];
     } else if(checkInState=='checkedOut'){
-      description='Thank you for using $amenity';
+      description='Thank you for using $amenity!';
       buttons = <Widget>[
         Container(
           height: 50,

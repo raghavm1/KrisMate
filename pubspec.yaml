@@ -22,6 +22,7 @@ dependencies:
   qrscan: ^0.2.17
   flutter_svg: ^0.18.1
   intl: ^0.16.1
+  toast: ^0.1.5
 
 
 

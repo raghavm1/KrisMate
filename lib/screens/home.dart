@@ -4,6 +4,7 @@ import '../amenities.dart';
 import 'chat.dart';
 import 'qr-scanner.dart';
 import 'amenity.dart';
+import 'bookings.dart';
 
 // ignore: must_be_immutable
 class MyHomePage extends StatelessWidget {
@@ -83,7 +84,10 @@ class MyHomePage extends StatelessWidget {
               ListTile(
                 title: Text("My Bookings"),
                 onTap: () {
-                  Navigator.of(context).pop();
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => BookingsPage()),
+                  );
                 },
               ),
               ListTile(

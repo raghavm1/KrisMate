@@ -28,8 +28,88 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final GlobalKey<ScaffoldState> _scaffoldKey =  GlobalKey<ScaffoldState>();
+
     // TODO: implement build
     return Scaffold(
+      key: _scaffoldKey,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 5.0,
+        title: Text(''),
+        iconTheme: new IconThemeData(color: Colors.black),
+      ),
+      drawer: Drawer( child: Column(
+        children: [
+          DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.blue,
+              )),
+          Expanded(
+            flex: 1,
+            child: ListView(
+              children: [
+                ListTile(
+                  title: Text("RAGHAV SHAHPURIA"),
+                  dense: true,
+
+                  onTap: () {
+                    Navigator.of(context).pop();
+                  },
+                ),
+              ],
+            ),
+          ),
+          Expanded(
+            flex: 2,
+            child: ListView(children: [
+              ListTile(
+                title: Text("Profile"),
+                onTap: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+              ListTile(
+                title: Text("My Bookings"),
+                onTap: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+              ListTile(
+                title: Text("About"),
+                onTap: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+              ListTile(
+                title: Text("Settings"),
+                onTap: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+              ListTile(
+                title: Text("Contact us"),
+                onTap: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+              ListTile(
+                title: Text("Home"),
+                onTap: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+              ListTile(
+                title: Text("Home"),
+                onTap: () {
+                  Navigator.of(context).pop();
+                },
+              )
+            ]),
+          )
+        ],
+      ),
+      ),
         body: Container(
       child: Column(children: <Widget>[
         Row(

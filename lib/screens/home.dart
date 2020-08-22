@@ -3,32 +3,10 @@ import '../amenities.dart';
 
 import 'chat.dart';
 import 'qr-scanner.dart';
+import 'amenity.dart';
 
 // ignore: must_be_immutable
 class MyHomePage extends StatelessWidget {
-  static List<dynamic> arr = Amenities.amenities["path"];
-
-//  final items = List<dynamic>.generate(5, (i) => {Row(children: <Widget>[
-//    Ink.image(
-//      image: AssetImage(Amenities.amenities["path"][i][0]),
-//      width: 245,
-//      height: 160,
-//      child: InkWell(
-//        onTap: () {},
-//        child: Text(Amenities.amenities["name"][i][0]),
-//      ),
-//    ),
-//    Ink.image(
-//      image: AssetImage(Amenities.amenities["path"][i][1]),
-//      width: 245,
-//      height: 160,
-//      child: InkWell(
-//        onTap: () {},
-//        child: Text(Amenities.amenities["name"][i][1]),
-//      ),
-//    )
-//  ])});
-
   MyHomePage({Key key}) : super(key: key);
 
   Widget titleSection = Container(
@@ -58,9 +36,18 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
-        backgroundColor: Colors.white,
         elevation: 5.0,
-        title: Text(''),
+        title: Row(
+
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Image.asset('assets/logo.png', height: 24,),
+            ),
+            Text('KrisFlyer', style: TextStyle(fontSize: 32),),
+          ],
+        ),
+        centerTitle: true,
         iconTheme: new IconThemeData(color: Colors.black),
       ),
       drawer: Drawer( child: Column(
@@ -150,7 +137,7 @@ class MyHomePage extends StatelessWidget {
             ),
             Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
               new Container(
-                margin: EdgeInsets.fromLTRB(20, 20, 100, 20),
+                margin: EdgeInsets.fromLTRB(20, 20, 20, 20),
                 child: const RaisedButton(
                   onPressed: null,
                   child:
@@ -158,6 +145,7 @@ class MyHomePage extends StatelessWidget {
                 ),
               ),
               new Container(
+                margin: EdgeInsets.fromLTRB(20, 20, 20, 20),
                 child: const RaisedButton(
                     onPressed: null,
                     child:
@@ -182,14 +170,14 @@ class MyHomePage extends StatelessWidget {
 
                                     Image.asset(
                                       Amenities.amenities["path"][i][0],
-                                      height: 160,
-                                      width: 240,
+                                      height: 160.0/240*MediaQuery.of(context).size.width*0.5,
+                                      width: MediaQuery.of(context).size.width*0.5,
                                     ),
                                     Opacity(
                                         opacity: 0.95,
                                         child: Container(
-                                          height: 160.0,
-                                          width: 240.0,
+                                          height: 160.0/240*MediaQuery.of(context).size.width*0.5,
+                                          width: MediaQuery.of(context).size.width*0.5,
                                           decoration: BoxDecoration(
                                               color: Colors.white,
                                               gradient: LinearGradient(
@@ -206,10 +194,10 @@ class MyHomePage extends StatelessWidget {
                                         )
                                     ),
                                     Container(
-                                        height:160,
-                                        width: 240,
+                                        height: 160.0/240*MediaQuery.of(context).size.width*0.5,
+                                        width: MediaQuery.of(context).size.width*0.5,
                                         child:Align(alignment:Alignment.bottomCenter,
-                                            child:Text(Amenities.amenities["name"][i][0]+"    >",style: TextStyle(fontSize:30, color: Colors.white),))
+                                            child:Text(Amenities.amenities["name"][i][0]+"    >",style: TextStyle(fontSize:24, color: Colors.white),))
                                     ),
                                   ],
                                 ),
@@ -221,14 +209,14 @@ class MyHomePage extends StatelessWidget {
                                   children: <Widget>[
                                     Image.asset(
                                       Amenities.amenities["path"][i][1],
-                                      height: 160,
-                                      width: 240,
+                                      height: 160.0/240*MediaQuery.of(context).size.width*0.5,
+                                      width: MediaQuery.of(context).size.width*0.5,
                                     ),
                                     Opacity(
                                         opacity: 0.95,
                                         child: Container(
-                                          height: 160.0,
-                                          width: 240.0,
+                                          height: 160.0/240*MediaQuery.of(context).size.width*0.5,
+                                          width: MediaQuery.of(context).size.width*0.5,
                                           decoration: BoxDecoration(
                                               color: Colors.white,
                                               gradient: LinearGradient(
@@ -245,10 +233,10 @@ class MyHomePage extends StatelessWidget {
                                         )
                                     ),
                                     Container(
-                                        height:160,
-                                        width: 240,
+                                        height: 160.0/240*MediaQuery.of(context).size.width*0.5,
+                                        width: MediaQuery.of(context).size.width*0.5,
                                         child:Align(alignment:Alignment.bottomCenter,
-                                            child:Text(Amenities.amenities["name"][i][1]+"    >",style: TextStyle(fontSize:30, color: Colors.white),))
+                                            child:Text(Amenities.amenities["name"][i][1]+"    >",style: TextStyle(fontSize:24, color: Colors.white),))
                                     ),
                                   ],
                                 ),
@@ -287,9 +275,11 @@ class MyHomePage extends StatelessWidget {
             )*/
           ],
         ),*/
-          ),
+          ]),
     ),
-    floatingActionButton: (FloatingActionButton(child: Icon(Icons.question_answer), onPressed: (){
+    floatingActionButton: (FloatingActionButton(
+      backgroundColor: Color.fromARGB(255, 252, 177, 48),
+      child: Icon(Icons.question_answer), onPressed: (){
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => ChatPage()),

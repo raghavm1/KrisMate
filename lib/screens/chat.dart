@@ -27,7 +27,12 @@ class _ChatPageState extends State<ChatPage> {
     print(chatData[input]['Next Questions']);
     chatOption = chatData[input]['Next Questions'];
   }
-
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    chat = [];
+  }
   @override
   Widget build(BuildContext context) {
     if (chatOption.length == 0) {

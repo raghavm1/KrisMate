@@ -21,7 +21,7 @@ dependencies:
     sdk: flutter
   qrscan: ^0.2.17
   flutter_svg: ^0.18.1
-
+  intl: ^0.16.1
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -41,6 +41,8 @@ flutter:
   assets:
     - assets/source.gif
     - assets/images/vegan-cobb-salad-tempeh-bacon.jpg
+    - assets/amenities/
+    - assets/logo.png
   fonts:
     - family: Sia
       fonts:

@@ -34,9 +34,18 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
-        backgroundColor: Colors.white,
         elevation: 5.0,
-        title: Text(''),
+        title: Row(
+
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Image.asset('assets/logo.png', height: 24,),
+            ),
+            Text('KrisFlyer', style: TextStyle(fontSize: 32),),
+          ],
+        ),
+        centerTitle: true,
         iconTheme: new IconThemeData(color: Colors.black),
       ),
       drawer: Drawer( child: Column(

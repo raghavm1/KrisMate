@@ -1,6 +1,6 @@
 # KrisMate - Singapore Airlines AppChallenge
 
-Submission made for SIA AppChallenge 2020!
+Submission made by Team Aviators for SIA AppChallenge 2020!
 
 KrisMate provides premium members with an app-based solution to monitor and book amenities at various KrisFlyer lounges worldwide in a fast, easy and convenient way.
 

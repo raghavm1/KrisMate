@@ -1,6 +1,8 @@
-# Singapore Airlines AppChallenge
+# KrisMate - Singapore Airlines AppChallenge
 
-SIA AppChallenge
+Submission made for SIA AppChallenge 2020!
+
+
 
 ## Getting Started
 

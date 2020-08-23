@@ -11,7 +11,7 @@ KrisMate provides premium members with an app-based solution to monitor and book
 - Checking amenities from any location.
 - Staff-less monitoring of amenities.
 
-![Booking Flow](/images/booking.JPG)
+![HomeScreen](/images/myles.gif)
 Format: ![App homescreen, amenity booking page and confirmation]()
 
 ## Getting Started

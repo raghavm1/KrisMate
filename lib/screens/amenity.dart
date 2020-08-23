@@ -2,7 +2,13 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:intl/intl.dart';
 
+import 'package:sia_app/amenities.dart';
+import 'package:toast/toast.dart';
+
 class AmenityPage extends StatefulWidget {
+  final List indices;
+  const AmenityPage({this.indices});
+
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
@@ -11,11 +17,11 @@ class AmenityPage extends StatefulWidget {
 }
 
 class _AmenityPageState extends State<AmenityPage> {
-  String description =
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sodales mi et risus tincidunt, eget consequat felis condimentum. Sed convallis vel orci eu pulvinar. ';
+//      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sodales mi et risus tincidunt, eget consequat felis condimentum. Sed convallis vel orci eu pulvinar. ';
 
   DateTime _fromDate = DateTime.now();
   TimeOfDay _fromTime = TimeOfDay.fromDateTime(DateTime.now());
+//
 
   Future<void> _showDatePicker() async {
     final picked = await showDatePicker(
@@ -48,17 +54,24 @@ class _AmenityPageState extends State<AmenityPage> {
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-        title: Text("Amenity Name"),
+        title: Text(
+            Amenities.amenities['name'][widget.indices[0]][widget.indices[1]]),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          Image.asset('assets/logo.png'),
-          Text(
-            description,
-            overflow: TextOverflow.ellipsis,
-            maxLines: 10,
+          Image.asset(Amenities.amenities['path'][widget.indices[0]]
+              [widget.indices[1]]),
+          Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: Text(
+              Amenities.amenities['description'][widget.indices[0]]
+                  [widget.indices[1]],
+              overflow: TextOverflow.ellipsis,
+              maxLines: 10,
+              style: TextStyle(fontSize: 20),
+            ),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -113,9 +126,13 @@ class _AmenityPageState extends State<AmenityPage> {
               'Book',
               style: TextStyle(fontSize: 24, color: Colors.white),
             ),
-            onPressed: () =>Navigator.pop(context),
+            onPressed: () {
+              Toast.show("Your place has been booked!", context, duration: Toast.LENGTH_LONG, gravity:  Toast.BOTTOM);
+              Navigator.pop(context);
+            },
             padding: EdgeInsets.all(8.0),
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
           )
         ],
       ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:qrscan/qrscan.dart' as scanner;
+import 'package:toast/toast.dart';
 
 class ScanningPage extends StatefulWidget {
   @override
@@ -7,15 +8,12 @@ class ScanningPage extends StatefulWidget {
 }
 
 class _ScanningPageState extends State<ScanningPage> {
-  Future<String> _qrResult = Future<String>.delayed(
-    Duration(milliseconds: 100),
-    () => 'Amenity',
-  ); //scanner.scan();
+  Future<String> _qrResult =  scanner.scan();
 
   String checkInState = 'notCheckedIn';
   String description = '';
   List buttons = [];
-  bool isAtCapacity = true;
+  bool isAtCapacity = false;
   String amenity = '';
 
   @override
@@ -24,10 +22,10 @@ class _ScanningPageState extends State<ScanningPage> {
       description ="Sorry, this area is currently full. You may click on 'Waitlist' to be notified when there is space available";
       buttons = <Widget>[
         Container(
-          height: 60,
+          height: 50,
           child: RaisedButton(
             child: (Text('Cancel',
-                style: TextStyle(fontSize: 28, color: Colors.white))),
+                style: TextStyle(fontSize: 24, color: Colors.white))),
             onPressed: () {
               Navigator.pop(context);
             },
@@ -37,17 +35,18 @@ class _ScanningPageState extends State<ScanningPage> {
           ),
         ),
         Container(
-          height: 60,
+          height: 50,
           child: RaisedButton(
             child: (Text('Waitlist',
-                style: TextStyle(fontSize: 28, color: Colors.white))),
+                style: TextStyle(fontSize: 24, color: Colors.white))),
             onPressed: () {
+              Toast.show("Your place has been booked!", context, duration: Toast.LENGTH_LONG, gravity:  Toast.BOTTOM);
               setState(() {
                 description = 'You will be notified when space is available';
                 buttons=[];
               });
             },
-            color: Colors.indigo,
+            color: Theme.of(context).primaryColor,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular((30.0))),
           ),
@@ -58,10 +57,10 @@ class _ScanningPageState extends State<ScanningPage> {
       description = '';
       buttons = <Widget>[
         Container(
-          height: 60,
+          height: 50,
           child: RaisedButton(
             child: (Text('Cancel',
-                style: TextStyle(fontSize: 28, color: Colors.white))),
+                style: TextStyle(fontSize: 24, color: Colors.white))),
             onPressed: () {
               Navigator.pop(context);
             },
@@ -71,16 +70,16 @@ class _ScanningPageState extends State<ScanningPage> {
           ),
         ),
         Container(
-          height: 60,
+          height: 50,
           child: RaisedButton(
             child: (Text('Check-in',
-                style: TextStyle(fontSize: 28, color: Colors.white))),
+                style: TextStyle(fontSize: 24, color: Colors.white))),
             onPressed: () {
               setState(() {
                 checkInState='checkedIn';
               });
             },
-            color: Colors.indigo,
+            color: Theme.of(context).primaryColor,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular((30.0))),
           ),
@@ -90,32 +89,32 @@ class _ScanningPageState extends State<ScanningPage> {
       description='Kindly remember to check out after using $amenity';
       buttons = <Widget>[
     Container(
-    height: 60,
+      height: 50,
     child: RaisedButton(
     child: (Text('Check-out',
-    style: TextStyle(fontSize: 28, color: Colors.white))),
+    style: TextStyle(fontSize: 24, color: Colors.white))),
     onPressed: () {
       setState(() {
         checkInState='checkedOut';
       });
     },
-    color: Colors.indigo,
+    color: Theme.of(context).primaryColor,
     shape: RoundedRectangleBorder(
     borderRadius: BorderRadius.circular((30.0))),
     ),
     )];
     } else if(checkInState=='checkedOut'){
-      description='Thank you for using $amenity';
+      description='Thank you for using $amenity!';
       buttons = <Widget>[
         Container(
-          height: 60,
+          height: 50,
           child: RaisedButton(
             child: (Text('Back to home',
-                style: TextStyle(fontSize: 28, color: Colors.white))),
+                style: TextStyle(fontSize: 24, color: Colors.white))),
             onPressed: () {
               Navigator.pop(context);
             },
-            color: Colors.indigo,
+            color: Theme.of(context).primaryColor,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular((30.0))),
           ),
@@ -123,6 +122,7 @@ class _ScanningPageState extends State<ScanningPage> {
     }
 
     return Scaffold(
+      appBar: AppBar(title: Text('Check-in'),),
         body: FutureBuilder<String>(
       future: _qrResult, // a previously-obtained Future<String> or null
       builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
@@ -137,6 +137,7 @@ class _ScanningPageState extends State<ScanningPage> {
             Text(
               description,
               textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 18),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -163,12 +164,10 @@ class _ScanningPageState extends State<ScanningPage> {
             padding: EdgeInsets.all(20),
             height: 400,
             width: double.infinity,
-            child: Card(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: children,
-              ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: children,
             ),
           ),
         );

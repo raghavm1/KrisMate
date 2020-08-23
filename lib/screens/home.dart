@@ -1,9 +1,12 @@
+
 import 'package:flutter/material.dart';
 import '../amenities.dart';
 
 import 'chat.dart';
 import 'qr-scanner.dart';
 import 'amenity.dart';
+import 'bookings.dart';
+import 'FOODMENU.dart';
 
 // ignore: must_be_immutable
 class MyHomePage extends StatelessWidget {
@@ -53,7 +56,7 @@ class MyHomePage extends StatelessWidget {
           ],
         ),
         centerTitle: true,
-        iconTheme: new IconThemeData(color: Colors.black),
+        iconTheme: new IconThemeData(color: Colors.white),
       ),
       drawer: Drawer(
         child: Column(
@@ -63,7 +66,7 @@ class MyHomePage extends StatelessWidget {
               decoration: new BoxDecoration(
                 color: Theme.of(context).primaryColor,
               ),
-              child: Text('Joe Biden', style: TextStyle(fontSize: 30)),
+              child: Text('Joe Biden', style: TextStyle(fontSize: 30, color: Colors.white)),
             ),
             Expanded(
               flex: 1,
@@ -78,7 +81,10 @@ class MyHomePage extends StatelessWidget {
                 ListTile(
                   title: Text("My Bookings"),
                   onTap: () {
-                    Navigator.of(context).pop();
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => BookingsPage()),
+                    );
                   },
                 ),
                 ListTile(
@@ -119,29 +125,24 @@ class MyHomePage extends StatelessWidget {
               titleSection,
               new Image(
                   image: new AssetImage("assets/source.gif"),
-                  height: MediaQuery.of(context).size.width * 0.25,
-                  width: MediaQuery.of(context).size.width * 0.25)
+                  height: MediaQuery.of(context).size.width * 0.30,
+                  width: MediaQuery.of(context).size.width * 0.30)
             ],
           ),
           Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
             new Container(
               margin: EdgeInsets.fromLTRB(20, 20, 20, 20),
               child: RaisedButton(
+                color: Color.fromARGB(255, 252, 177, 48),
                 onPressed: (){
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => ScanningPage()),
                   );
                 },
-                child: Text('Book a facility', style: TextStyle(fontSize: 20)),
+                child: Text('Check in to facility', style: TextStyle(fontSize: 20, color: Colors.white)),
               ),
             ),
-            new Container(
-              margin: EdgeInsets.fromLTRB(20, 20, 20, 20),
-              child: const RaisedButton(
-                  onPressed: null,
-                  child: Text('Select lounge', style: TextStyle(fontSize: 20))),
-            )
           ]),
           Container(
             child: Expanded(
@@ -153,7 +154,13 @@ class MyHomePage extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             InkWell(
-                              onTap: () {},
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => AmenityPage(indices: [i,0],)),
+                                );
+                              },
                               child: Stack(
                                 children: <Widget>[
                                   Image.asset(
@@ -211,7 +218,21 @@ class MyHomePage extends StatelessWidget {
                               ),
                             ),
                             InkWell(
-                              onTap: () {},
+                              onTap: () {
+                                if(i==1){
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => HomeScreen(),
+                                  ));
+                                } else {
+                                Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                builder: (context) => AmenityPage(indices: [i,1],)),
+                                );
+                                }
+                              },
                               child: Stack(
                                 children: <Widget>[
                                   Image.asset(

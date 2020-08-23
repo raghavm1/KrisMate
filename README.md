@@ -2,6 +2,14 @@
 
 Submission made for SIA AppChallenge 2020!
 
+KrisMate provides premium members with an app-based solution to monitor and book amenities at various KrisFlyer lounges worldwide in a fast, easy and convenient way.
+
+## Key Features
+- Contactless & wireless booking of amenities via QR code at lounges.
+- 24X7 Chatbot for assistance.
+- Advanced Meal-planning.
+- Checking amenities from any location.
+- Staff-less monitoring of amenities.
 
 
 ## Getting Started
